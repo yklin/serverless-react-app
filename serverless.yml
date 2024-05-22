@@ -1,0 +1,17 @@
+service: tenfold-linegpt-frontend
+
+useDotenv: true
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  region: ${env:AWS_REGION, 'ap-northeast-1'}
+
+plugins:
+  - serverless-lift
+
+constructs:
+  react:
+    type: single-page-app
+    path: ./build
+
